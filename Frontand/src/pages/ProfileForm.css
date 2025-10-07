@@ -1,0 +1,71 @@
+/* Form container */
+.profile-form-container {
+  max-width: 420px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f9fafc, #e8f0fe);
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Heading */
+.form-title {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #3b82f6;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Inputs */
+.profile-form input,
+.profile-form select,
+.profile-form textarea {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 1rem;
+  border-radius: 0.6rem;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+/* Focus effect */
+.profile-form input:focus,
+.profile-form select:focus,
+.profile-form textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.4);
+}
+
+/* Button */
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  border: none;
+  border-radius: 0.8rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .profile-form-container {
+    padding: 1.2rem;
+  }
+  .form-title {
+    font-size: 1.3rem;
+  }
+}
