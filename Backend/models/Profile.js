@@ -27,7 +27,7 @@ const profileSchema = new mongoose.Schema({
   shortBio: {
     type: String,
     required: true,
-    minlength: [50, "Short bio must be at least 20 words (≈50 chars)"]
+    minlength: [20, "Short bio must be at least 20 words (≈20 chars)"]
   },
   age: {
     type: Number,

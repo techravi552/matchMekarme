@@ -1,0 +1,8 @@
+[
+  {"id":1,"name":"Amit-Rani","age":28,"gender":"Male","city":"Ahmedabad","image":"https://images.pexels.com/photos/1777843/pexels-photo-1777843.jpeg"},
+  {"id":2,"name":"Priya-Suresh","age":26,"gender":"Female","city":"Mumbai","image":"https://images.pexels.com/photos/1587042/pexels-photo-1587042.jpeg"},
+  {"id":3,"name":"Raj-Kiran","age":30,"gender":"Male","city":"Delhi","image":"https://media.istockphoto.com/id/866987706/photo/indian-wedding-hands.jpg?b=1&s=612x612&w=0&k=20&c=Mkxjb5hRCkOqQl9lKhemaR4fOEIRrt7Ri3ikwlTwQ9U="},
+  {"id":4,"name":"Sneha-Pawan","age":24,"gender":"Female","city":"Bengaluru","image":"https://media.istockphoto.com/id/2168707868/photo/indian-couple-holding-hand-close-up-in-wedding-ceremony.jpg?b=1&s=612x612&w=0&k=20&c=QSv9vuqrlSo6JN7AL2_Ldi-r3Q4yG-jsJNaAjjuzDRE="},
+  {"id":5,"name":"Vikram-Kasish","age":29,"gender":"Male","city":"Pune","image":"https://images.pexels.com/photos/1295986/pexels-photo-1295986.jpeg"},
+  {"id":6,"name":"Anita-Shivani","age":27,"gender":"Female","city":"Jaipur","image":"https://images.pexels.com/photos/2917380/pexels-photo-2917380.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"}
+]

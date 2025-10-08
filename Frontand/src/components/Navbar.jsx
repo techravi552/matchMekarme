@@ -1,32 +1,60 @@
-// frontend/src/components/Navbar.jsx
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "./Navbar.css";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "../styles/Navbar.css";
 
-export default function Navbar() {
-  const nav = useNavigate();
-  const logout = () => {
+export default function Navbar(props) {
+  const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  // ✅ Load user from localStorage
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+    if (user) setCurrentUser(user);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("currentUser");
     localStorage.removeItem("token");
-    nav("/login");
+    setCurrentUser(null);
+    navigate("/login");
   };
 
   return (
-    <nav className="nav">
-      <div className="brand">SmartHome</div>
-      <div className="links">
-        <Link to="/dashboard">Dashboard</Link>
-        <Link to="/routines">Routines</Link>
-        <Link to="/energy">Energy</Link>
-        <Link to="/Emargensy">Emargensy</Link>
-        
-        <Link to="/AddDeviceForm">AddDeviceForm</Link>
-        <Link to="/DeviceGroups">DeviceGroups</Link>
-        
-        <Link to="/DeviceStatus">DeviceStatus</Link>
-        
-        
+    <nav className="navbar">
+      <div className="navbar-left">
+        <h1 className="logo">💑 MatchMaker</h1>
       </div>
-      <button className="logout" onClick={logout}>Logout</button>
+
+      {/* Hamburger for mobile */}
+      <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+        ☰
+      </div>
+
+      <div className={`nav-right ${menuOpen ? "open" : ""}`}>
+        {currentUser ? (
+          <>
+            <img
+              src={props.dp || "https://via.placeholder.com/40"}
+              alt="dp"
+              className="nav-dp"
+            />
+            <span>{currentUser.name}</span>
+            <button onClick={handleLogout} className="btn">
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <button onClick={() => navigate("/login")} className="btn">
+              Login
+            </button>
+            <button onClick={() => navigate("/signup")} className="btn">
+              signup
+            </button>
+          </>
+        )}
+      </div>
     </nav>
-  )
+  );
 }

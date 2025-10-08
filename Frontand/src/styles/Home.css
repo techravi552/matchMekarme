@@ -1,0 +1,161 @@
+/* ================= Hero Section ================= */
+.hero {
+  background-size: cover;
+  background-position: center;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  position: relative;
+}
+
+.hero-content {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 20px 30px;
+  border-radius: 12px;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.hero-content .cta {
+  padding: 12px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #ff4081;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hero-content .cta:hover {
+  background-color: #e73370;
+  transform: scale(1.05);
+}
+
+/* ================= About Section ================= */
+.about {
+  padding: 50px 20px;
+  text-align: center;
+  color:black;
+}
+
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.about p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ================= Partners Section ================= */
+.partners-row {
+  color: black;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.partners-row h3 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.partners-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.partner-card {
+  width: 180px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+}
+
+.partner-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.partner-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.pc-info {
+  padding: 10px;
+  text-align: center;
+}
+
+.pc-info strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+}
+
+/* ================= Footer ================= */
+.site-footer {
+  color: black;
+  padding: 25px 20px;
+  background: #f1f1f1;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.95rem;
+}
+
+/* ================= Responsive Media Queries ================= */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .partners-list {
+    gap: 15px;
+  }
+
+  .partner-card {
+    width: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 50vh;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .partner-card {
+    width: 120px;
+  }
+}

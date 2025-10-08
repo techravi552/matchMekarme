@@ -1,39 +1,57 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import axios from "axios";
 
-export default function PrivateProfile() {
+const PrivateProfile = ({ children }) => {
+  const [checking, setChecking] = useState(true); // ✅ to wait until API check completes
+  const [authorized, setAuthorized] = useState(false);
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(true);
+
+  const token = localStorage.getItem("token");
+  const email = localStorage.getItem("email");
 
   useEffect(() => {
-    const email = localStorage.getItem("email"); // 👈 localStorage से email लो
+    const verifyProfile = async () => {
+      if (!token) {
+        setAuthorized(false);
+        setChecking(false);
+        return;
+      }
 
-    if (!email) {
-      // अगर email ही नहीं है तो सीधा profile setup पर भेज दो
-      navigate("/profileSetup");
-      return;
-    }
+      try {
+        const res = await axios.get("http://localhost:5000/api/profiles");
+        const existingUser = res.data.find(
+          (profile) => profile.email === email
+        );
 
-    // Backend से profiles लाओ
-    fetch("http://localhost:5000/api/profiles")
-      .then((res) => res.json())
-      .then((data) => {
-        // check karo email exist karta hai ya nahi
-        const found = data.find((p) => p.email === email);
-
-        if (found) {
-          navigate("/mainPage"); // agar profile mila to main.jsx par
+        if (existingUser) {
+          // ✅ अगर profile पहले से मौजूद है → mainPage पर भेज दो
+          navigate("/mainPage");
         } else {
-          navigate("/profileSetup"); // agar nahi mila to setup par
+          // ⚠️ profile नहीं है → profileSetup पर रखो
+          navigate("/profileSetup");
         }
-      })
-      .catch(() => {
-        navigate("/profileSetup"); // error case me bhi setup
-      })
-      .finally(() => setLoading(false));
-  }, [navigate]);
 
-  if (loading) return <p>Checking profile...</p>;
+        setAuthorized(true);
+      } catch (err) {
+        console.error("Profile check error:", err);
+        setAuthorized(false);
+      } finally {
+        setChecking(false);
+      }
+    };
 
-  return null; // kuch render nahi karega, bas redirect karega
-}
+    verifyProfile();
+  }, [token, email, navigate]);
+
+  // ⏳ जब तक check हो रहा है तब तक कुछ भी render न करो
+  if (checking) return <div>Checking profile...</div>;
+
+  // ❌ अगर token नहीं है → login पर redirect
+  if (!authorized && !token) return <Navigate to="/login" />;
+
+  // ✅ authorized होने पर children दिखाओ
+  return children;
+};
+
+export default PrivateProfile;

@@ -1,33 +1,113 @@
+/* === Background and Layout === */
 .login-container {
-  width: 350px;
-  margin: 50px auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #5b2cff, #ff00cc);
+  background-size: cover;
   padding: 20px;
+}
+
+/* === Card Box === */
+.login-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 35px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+}
+
+/* === Heading and Subtitle === */
+.login-card h2 {
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+
+/* === Input Fields === */
+.login-form input {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
   border: 2px solid #ddd;
   border-radius: 10px;
-  background: #fff;
-  text-align: center;
+  font-size: 16px;
+  transition: all 0.3s ease;
 }
 
-.login-form input {
-  display: block;
-  width: 90%;
-  margin: 10px auto;
-  padding: 10px;
-  border: 1px solid #bbb;
-  border-radius: 5px;
+.login-form input:focus {
+  border-color: #5b2cff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(91, 44, 255, 0.4);
 }
 
+/* === Button === */
 .login-form button {
-  width: 95%;
-  padding: 10px;
-  margin-top: 15px;
-  background: #2196f3;
-  color: white;
+  width: 100%;
+  padding: 12px 0;
+  background: linear-gradient(90deg, #5b2cff, #ff00cc);
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
   cursor: pointer;
+  transition: background 0.4s ease;
 }
 
 .login-form button:hover {
-  background: #0b7dda;
+  background: linear-gradient(90deg, #4a1fe2, #e400b7);
+}
+
+/* === Signup Link === */
+.signup-link {
+  margin-top: 20px;
+  color: #333;
+  font-size: 14px;
+}
+
+.signup-link a {
+  color: #5b2cff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.signup-link a:hover {
+  color: #ff00cc;
+}
+
+/* === Responsive === */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 30px 25px;
+  }
+
+  .login-card h2 {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .login-form input,
+  .login-form button {
+    font-size: 15px;
+  }
 }

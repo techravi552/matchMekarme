@@ -3,104 +3,31 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Dashboard from "./pages/Dashboard";
-import Routines from "./pages/Routines";
-import EnergyReport from "./pages/EnergyReport";
-import PrivateRoute from "./components/PrivateRoute";
-import AddDeviceForm from "./components/AddDeviceForm"
-import Emargensy from "./pages/Emargensy";
-import DeviceStatus from "./pages/DeviceStatus";
-import DeviceGroups from "./components/DeviceGroups";
 import ProfileSetup from "./pages/ProfileSetup";
-import PrivateProfile from "./components/PrivateProfile";
 import MainPage from "./pages/MainPage";
+import PrivateRoute from "./components/PrivateRoute"; // 👈 IMPORT WAPAS KARO
+import Home from "./pages/Home";
+import PrivateProfile from "./components/privateProfile";
 
 function App() {
   return (
-   
     <Router>
       <Routes>
-     
-      
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Signup />} />
 
+        {/* Public Routes */}
+            <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+
+        {/* Profile setup (allowed after login but before main page) */}
+        <Route path="/profileSetup" element={    <PrivateProfile><ProfileSetup /></PrivateProfile>} />
+
+        {/* Protected Route: only accessible if logged in + profile complete */}
         <Route
-          path="/dashboard"
-          element={
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/routines"
-          element={
-            <PrivateRoute>
-              <Routines />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/energy"
-          element={
-            <PrivateRoute>
-              <EnergyReport />
-            </PrivateRoute>
-          }
-        />
-         <Route
-          path="/Emargensy"
-          element={
-            <PrivateRoute>
-              <Emargensy />
-            </PrivateRoute>
-          }
-        />
-         <Route
-          path="/DeviceStatus"
-          element={
-            <PrivateRoute>
-              <DeviceStatus />
-            </PrivateRoute>
-          }
-        />
-          <Route
-          path="/DeviceGroups"
-          element={
-            <PrivateRoute>
-              <DeviceGroups />
-            </PrivateRoute>
-          }
-        />
-        
-        
-        <Route
-          path="/profileSetup"
-          element={
-            <PrivateRoute>
-              <ProfileSetup/>
-            </PrivateRoute>
-          }
-        />
-         <Route
           path="/mainPage"
           element={
-                    <PrivateProfile>
-                       <MainPage/>
-                    </PrivateProfile>
-          }
-        />
-
-
-       
-
-        {/* default: go to dashboard if logged in, else login */}
-        <Route
-          path="/"
-          element={
             <PrivateRoute>
-              <Dashboard />
+              <MainPage />
             </PrivateRoute>
           }
         />
