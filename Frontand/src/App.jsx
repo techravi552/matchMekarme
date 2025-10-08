@@ -8,6 +8,8 @@ import MainPage from "./pages/MainPage";
 import PrivateRoute from "./components/PrivateRoute"; // 👈 IMPORT WAPAS KARO
 import Home from "./pages/Home";
 import PrivateProfile from "./components/privateProfile";
+import ViewProfile from "./pages/ViewProfile";
+import MyProfile from "./pages/MyProfile";
 
 function App() {
   return (
@@ -18,7 +20,7 @@ function App() {
             <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-
+  <Route path="/myprofile" element={<MyProfile />} />
         {/* Profile setup (allowed after login but before main page) */}
         <Route path="/profileSetup" element={    <PrivateProfile><ProfileSetup /></PrivateProfile>} />
 
@@ -29,8 +31,11 @@ function App() {
             <PrivateRoute>
               <MainPage />
             </PrivateRoute>
+
+
           }
         />
+        <Route path="/viewProfile/:id" element={<ViewProfile />} />
       </Routes>
     </Router>
   );

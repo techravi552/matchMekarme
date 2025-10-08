@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import "../styles/MainPage.css";
 
 export default function MainPage() {
+   const navigate = useNavigate();
   const [profiles, setProfiles] = useState([]);
   const [search, setSearch] = useState("");
-  const [currentUserProfile, setCurrentUserProfile] = useState(null); // ✅ For Navbar
   const userEmail = localStorage.getItem("email");
 
   useEffect(() => {
@@ -16,16 +17,10 @@ export default function MainPage() {
 
         // ✅ Find current user's full profile
        const mainProfile = res.data.find(profile => profile.email === userEmail);
-
+console.log(mainProfile)
+ localStorage.setItem("currentProfile", JSON.stringify(mainProfile));
 // Build proper image URL
-let currentUserImage = "https://via.placeholder.com/40";
-if (mainProfile?.profileImage) {
-  currentUserImage = mainProfile.profileImage.startsWith("http")
-    ? mainProfile.profileImage
-    : `http://localhost:5000/uploads/${mainProfile.profileImage}`;
-}
 
-setCurrentUserProfile({ ...mainProfile, profileImage: currentUserImage });
 
 
         // ✅ Filter out current user from profiles list
@@ -52,7 +47,7 @@ setCurrentUserProfile({ ...mainProfile, profileImage: currentUserImage });
   return (
     <>
       {/* ✅ Pass current user profile image to Navbar */}
-     <Navbar dp={currentUserProfile?.profileImage} />
+     <Navbar/>
 
       <div className="main-container">
         <h1 className="main-title">💑 Meet New People</h1>
@@ -91,7 +86,12 @@ setCurrentUserProfile({ ...mainProfile, profileImage: currentUserImage });
                   </div>
                   <div className="profile-actions">
                     <button className="like-btn">❤️ Like</button>
-                    <button className="view-btn">👁 View Details</button>
+                 <button
+                  className="view-btn"
+                  onClick={() => navigate(`/viewProfile/${user._id}`)}
+                >
+                  👁 View Details
+                </button>
                   </div>
                 </div>
               );
