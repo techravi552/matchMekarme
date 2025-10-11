@@ -11,7 +11,7 @@ export default function ViewProfile() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/profiles/${id}`);
+        const res = await axios.get(`https://matchmekarme.onrender.com/api/profiles/${id}`);
         setProfile(res.data);
       } catch (err) {
         console.error("Error fetching profile:", err);
@@ -25,7 +25,7 @@ export default function ViewProfile() {
   const profileImageUrl = profile.profileImage
     ? profile.profileImage.startsWith("http")
       ? profile.profileImage
-      : `http://localhost:5000/uploads/${profile.profileImage}`
+      : `https://matchmekarme.onrender.com/uploads/${profile.profileImage}`
     : "https://via.placeholder.com/250";
 
   return (

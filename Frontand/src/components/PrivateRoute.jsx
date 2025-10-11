@@ -23,7 +23,7 @@ const PrivateRoute = ({ children }) => {
     }
 
     // 🔹 Backend se verify karo ki profile hai ya nahi
-    fetch("http://localhost:5000/api/profiles")
+    fetch("https://matchmekarme.onrender.com/api/profiles")
       .then((res) => res.json())
       .then((data) => {
         const found = data.find((p) => p.email === email);

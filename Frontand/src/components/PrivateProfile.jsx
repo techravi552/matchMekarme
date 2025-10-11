@@ -19,7 +19,7 @@ const PrivateProfile = ({ children }) => {
       }
 
       try {
-        const res = await axios.get("http://localhost:5000/api/profiles");
+        const res = await axios.get("https://matchmekarme.onrender.com/api/profiles");
         const existingUser = res.data.find(
           (profile) => profile.email === email
         );

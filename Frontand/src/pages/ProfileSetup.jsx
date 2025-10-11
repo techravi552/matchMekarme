@@ -30,7 +30,7 @@ export default function ProfileForm({ existingProfile }) {
       // ✅ Step 2: Check from API if profile exists
       const checkProfile = async () => {
         try {
-          const res = await fetch(`http://localhost:5000/api/profiles/email/${savedEmail}`);
+          const res = await fetch(`https://matchmekarme.onrender.com/api/profiles/email/${savedEmail}`);
           if (res.ok) {
             const data = await res.json();
 
@@ -76,7 +76,7 @@ export default function ProfileForm({ existingProfile }) {
     });
 
     try {
-      const response = await fetch("http://localhost:5000/api/profiles", {
+      const response = await fetch("https://matchmekarme.onrender.com/api/profiles", {
         method: existingProfile ? "PUT" : "POST",
         body: formData,
       });

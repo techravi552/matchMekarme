@@ -11,7 +11,7 @@ export default function MyProfile() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/profiles");
+        const res = await axios.get("https://matchmekarme.onrender.com/api/profiles");
         const myProfile = res.data.find(p => p.email === user.email);
         setProfile(myProfile);
       } catch (err) {
@@ -29,7 +29,7 @@ export default function MyProfile() {
 
   const profileImage = profile.profileImage.startsWith("http")
     ? profile.profileImage
-    : `http://localhost:5000/uploads/${profile.profileImage}`;
+    : `https://matchmekarme.onrender.com/uploads/${profile.profileImage}`;
 
   return (
     <>

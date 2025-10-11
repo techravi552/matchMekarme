@@ -15,13 +15,13 @@ export default function Navbar() {
     if (user) {
       const fetchProfile = async () => {
         try {
-          const res = await axios.get("http://localhost:5000/api/profiles");
+          const res = await axios.get("https://matchmekarme.onrender.com/api/profiles");
           const profile = res.data.find(p => p.email === user.email);
 
           if (profile) {
             const imgUrl = profile.profileImage.startsWith("http")
               ? profile.profileImage
-              : `http://localhost:5000/uploads/${profile.profileImage}`;
+              : `https://matchmekarme.onrender.com/uploads/${profile.profileImage}`;
             setProfileImage(imgUrl);
             setUserName(profile.name); // ✅ Name bhi wahi se set
             setCurrentUserProfile(profile);
