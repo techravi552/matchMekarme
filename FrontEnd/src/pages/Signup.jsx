@@ -16,7 +16,7 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
-    const res = await axios.post("https://matchmakerproject.onrender.com/users/signup", form);
+    const res = await axios.post("http://localhost:5000/users/signup", form);
     
     // backend से currentUser data आएगा
     localStorage.setItem("currentUser", JSON.stringify(res.data.user));

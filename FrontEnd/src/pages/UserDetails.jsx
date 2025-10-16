@@ -12,7 +12,7 @@ export default function UserDetails() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get(`https://matchmakerproject.onrender.com/profile/${email}`);
+        const res = await axios.get(`http://localhost:5000/profile/${email}`);
         setProfile(res.data);
       } catch (error) {
         console.error("Error fetching profile:", error);

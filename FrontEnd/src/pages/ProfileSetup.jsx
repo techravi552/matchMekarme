@@ -61,7 +61,7 @@ export default function ProfileSetup() {
     }
 
     try {
-      const response = await fetch('https://matchmakerproject.onrender.com/profile/create', {
+      const response = await fetch('http://localhost:5000/profile/create', {
         method: 'POST',
         body: formData
         // ❌ NO headers - browser automatically sets Content-Type

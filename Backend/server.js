@@ -5,8 +5,7 @@ const app = express();
 const cors = require("cors");
 const connectToDB = require("./config/db");
 const UserRouter = require("./routes/userRoutes.js");
-// const ProfileRouter = require("./routes/ProfileRoutes.js");
-const ProfileRouter = require("./routes/profileRoutes.js");
+const ProfileRouter = require("./routes/ProfileRoutes.js");
 const cloudinary = require('cloudinary').v2;
 
 // massageing 

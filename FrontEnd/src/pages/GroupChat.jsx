@@ -3,7 +3,7 @@ import io from "socket.io-client";
 import "../styles/GroupChat.css";
 import Navbar from "../components/Navbar";
 
-const socket = io("https://matchmakerproject.onrender.com");
+const socket = io("http://localhost:5000");
 
 export default function GroupChat() {
   const [message, setMessage] = useState("");

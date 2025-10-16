@@ -17,7 +17,7 @@ export default function Main() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get("https://matchmakerproject.onrender.com/profile/all");
+        const res = await axios.get("http://localhost:5000/profile/all");
         let allUsers = res.data.profiles || [];
         // ✅ apni khud ki profile exclude karo
         allUsers = allUsers.filter((u) => u.email !== currentUser?.email);
@@ -39,7 +39,7 @@ export default function Main() {
 const handleLike = async (email) => {
   try {
     const res = await axios.post(
-      `https://matchmakerproject.onrender.com/profile/like/${email}`,
+      `http://localhost:5000/profile/like/${email}`,
       {},
       {
         headers: { Authorization: `Bearer ${token}` },

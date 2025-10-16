@@ -26,7 +26,7 @@ export default function UpdateProfile() {
     
     try {
       const res = await axios.put(
-        `https://matchmakerproject.onrender.com/profile/update/${currentUser._id}`,
+        `http://localhost:5000/profile/update/${currentUser._id}`,
         form,
         { headers: { Authorization: `Bearer ${token}` } }
       );

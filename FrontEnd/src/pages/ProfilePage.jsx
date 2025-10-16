@@ -52,7 +52,7 @@ export default function ProfilePage() {
         formData.append("photo", file);
 
         const res = await axios.post(
-          `https://matchmakerproject.onrender.com/profile/upload-photo/${user.email}`,
+          `http://localhost:5000/profile/upload-photo/${user.email}`,
           formData,
           {
             headers: {
