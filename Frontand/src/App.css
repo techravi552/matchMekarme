@@ -1,79 +1,42 @@
-*{
-    padding: 0;
-    margin: 0;
-}
-:root {
-  --bg: #0b0e14;
-  --card: #111726;
-  --muted: #9aa4b2;
-  --text: #e6edf3;
-  --primary: #5b9bff;
-  --secondary: #2b3345;
-  --border: #20283a;
-  --success: #22c55e;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-* { box-sizing: border-box; }
-
-html, body, #root {
-  height: 100%;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-body {
-  margin: 0;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: radial-gradient(1200px 800px at 15% 10%, #152039 0%, var(--bg) 50%);
-  color: var(--text);
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.container {
-  max-width: 980px;
-  margin: 24px auto;
-  padding: 0 16px;
-}
-
-.app-header {
-  margin-bottom: 20px;
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
 }
 
 .card {
-  background: linear-gradient(to bottom right, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-  backdrop-filter: blur(8px);
+  padding: 2em;
 }
 
-.btn {
-  appearance: none;
-  border: 1px solid var(--border);
-  background: var(--secondary);
-  color: var(--text);
-  padding: 10px 14px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.btn:hover { filter: brightness(1.1); }
-.btn:active { transform: translateY(1px); }
-
-.btn.primary {
-  background: var(--primary);
-  border-color: rgba(255,255,255,0.15);
-}
-
-.btn.btn-secondary {
-  background: transparent;
-}
-
-.muted { color: var(--muted); }
-
-.pill {
-  display: inline-block;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: #1a2236;
-  border: 1px solid var(--border);
+.read-the-docs {
+  color: #888;
 }

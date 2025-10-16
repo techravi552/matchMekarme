@@ -1,151 +1,110 @@
-/* ================= Navbar ================= */
+/* 🌐 Navbar Base */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 24px;
-  background: linear-gradient(90deg, #ff4081, #ff77a9);
-  color: #fff;
+  background: var(--text-dark);
+  color: var(--white);
+  padding: 0.8rem 1.5rem;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-  transition: background 0.3s ease;
 }
 
+/* Logo */
 .logo {
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--primary);
+  margin: 0;
   cursor: pointer;
-  user-select: none;
 }
 
-/* ================= Right Side ================= */
+/* Right Side */
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 14px;
-  transition: transform 0.3s ease;
-}
-
-.nav-right button {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.25);
-  color: #fff;
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
-}
-
-.nav-right button:hover {
-  background-color: rgba(255, 255, 255, 0.4);
-}
-
-.nav-right .btn.primary {
-  background-color: #fff;
-  color: #ff4081;
-  font-weight: 600;
+  gap: 1rem;
   transition: all 0.3s ease;
 }
 
-.nav-right .btn.primary:hover {
-  background-color: #ffe5f0;
-  transform: translateY(-2px);
-}
-
-/* Profile DP */
+/* Avatar / DP */
 .nav-dp {
   width: 38px;
   height: 38px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #fff;
-  transition: transform 0.3s ease;
+  border: 2px solid var(--primary);
 }
 
-.nav-dp:hover {
-  transform: scale(1.05);
+/* Buttons */
+.btn {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid var(--white);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: var(--transition);
 }
 
-/* ================= Hamburger Menu ================= */
+.btn:hover {
+  background: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.btn.primary {
+  background: var(--primary);
+  border: none;
+}
+
+.btn.primary:hover {
+  background: #c72f3c;
+}
+
+/* Hamburger (Mobile Only) */
 .hamburger {
   display: none;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  transition: color 0.3s ease;
 }
 
-.hamburger:hover {
-  color: #ffe5f0;
-}
-
-/* ================= Responsive ================= */
+/* 📱 Mobile Responsive */
 @media (max-width: 768px) {
   .hamburger {
     display: block;
+    color: var(--white);
   }
 
   .nav-right {
-    display: none;
     position: absolute;
-    top: 64px;
+    top: 60px;
     right: 0;
-    background: linear-gradient(135deg, #ff4081, #ff77a9);
+    background: var(--text-dark);
     flex-direction: column;
-    align-items: flex-start;
-    width: 220px;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-    padding: 16px;
-    border-radius: 12px 0 0 12px;
-    box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    padding: 1rem;
+    display: none;
   }
 
   .nav-right.open {
-    transform: translateX(0);
     display: flex;
   }
 
-  .nav-right button {
+  .nav-right button,
+  .nav-right span {
     width: 100%;
     text-align: left;
-    margin: 6px 0;
-    font-size: 1rem;
-  }
-
-  .nav-right .btn.primary {
-    width: 100%;
-  }
-
-  .nav-dp {
-    margin-bottom: 12px;
   }
 }
 
-/* ================= Extra Small Devices ================= */
 @media (max-width: 480px) {
   .logo {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
-
-  .nav-right {
-    width: 180px;
-    top: 58px;
-    padding: 12px;
-  }
-
-  .nav-right button {
-    font-size: 0.9rem;
-    padding: 6px 12px;
-  }
-
-  .nav-dp {
-    width: 32px;
-    height: 32px;
+  .btn {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
   }
 }

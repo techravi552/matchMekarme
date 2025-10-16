@@ -1,0 +1,108 @@
+/* src/pages/About.css */
+
+:root{
+  --bg: #f6fcf6;
+  --card: #ffffff;
+  --accent: #2e7d32; /* green accent */
+  --muted: #6b7280;
+  --radius: 12px;
+  --shadow: 0 6px 18px rgba(16,24,40,0.08);
+}
+
+*{box-sizing:border-box}
+body{font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;}
+
+.about-page{
+  min-height: 80vh;
+  padding: 2rem 1rem;
+  background: linear-gradient(180deg, #f0fbf0 0%, var(--bg) 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.about-card{
+  width:100%;
+  max-width: 980px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+
+.about-header{
+  padding: 2rem;
+  border-bottom: 1px solid #eef6ee;
+  background: linear-gradient(90deg, rgba(46,125,50,0.06) 0%, rgba(46,125,50,0.03) 100%);
+}
+.about-header h1{
+  margin:0 0 .4rem 0;
+  font-size:1.6rem;
+  color: var(--accent);
+}
+.subtitle{
+  margin:0;
+  color:var(--muted);
+  font-size:0.98rem;
+}
+
+/* body */
+.about-body{
+  padding: 1.25rem 2rem;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2rem;
+}
+
+.feature{
+  background: #fbfffb;
+  border: 1px solid #eef7ee;
+  padding: 1rem;
+  border-radius: 10px;
+  min-height: 100px;
+}
+.feature h2, .feature h3{
+  margin: 0 0 0.6rem 0;
+  color: #1b5e20;
+}
+.feature p{ margin: 0 0 .6rem 0; color: #374151; font-size:0.95rem }
+.feature ul{ padding-left:1.05rem; color:#374151 }
+.feature li{ margin: .4rem 0; font-size:0.95rem }
+.feature.extra ol{ padding-left:1.05rem; color:#374151 }
+
+.hi{ margin-top:.6rem; color:#3f3d56; font-size:0.88rem; opacity:0.9; }
+
+/* footer */
+.about-footer{
+  padding: 1rem 2rem;
+  border-top: 1px solid #eef6ee;
+  display:flex;
+  flex-direction:column;
+  gap:.75rem;
+  align-items:center;
+  justify-content:center;
+}
+.cta{ display:flex; gap: .6rem; flex-wrap:wrap; }
+.btn{
+  padding:.6rem .95rem;
+  border-radius:8px;
+  cursor:pointer;
+  border:none;
+  font-weight:600;
+  font-size:0.95rem;
+}
+.btn.primary{ background: var(--accent); color:white; box-shadow: 0 4px 12px rgba(46,125,50,0.18); }
+.btn.outline{ background:transparent; color:var(--accent); border:1px solid rgba(46,125,50,0.12) }
+
+/* small note */
+.small-note{ font-size:0.85rem; color:var(--muted) }
+
+/* Responsive */
+@media (max-width:900px){
+  .about-body{ grid-template-columns: 1fr; padding:1rem 1rem; }
+  .about-header{ padding:1.25rem;}
+  .about-footer{ padding:1rem;}
+  .about-card{ margin:0 0; }
+}

@@ -1,0 +1,141 @@
+/* Form page ka wrapper */
+.form-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 15px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+}
+
+/* Card style form */
+.auth-form {
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.auth-form:hover {
+  transform: translateY(-3px);
+}
+
+/* Title */
+.form-page h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1e293b;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Input fields */
+.auth-form input,
+.auth-form select,
+.auth-form textarea {
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.auth-form input:focus,
+.auth-form select:focus,
+.auth-form textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+/* Textarea */
+.auth-form textarea {
+  resize: none;
+  min-height: 80px;
+}
+
+/* Labels */
+.auth-form label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+}
+
+/* Button */
+.btn.primary {
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.btn.primary:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.btn.primary:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* Profile image preview */
+.auth-form img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 2px solid #e2e8f0;
+  object-fit: cover;
+}
+
+/* ---------------- Responsive ---------------- */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .auth-form {
+    max-width: 90%;
+    padding: 25px 20px;
+  }
+
+  .form-page h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 480px) {
+  .auth-form {
+    padding: 20px 15px;
+    gap: 12px;
+  }
+
+  .form-page {
+    padding: 20px 10px;
+  }
+
+  .form-page h2 {
+    font-size: 1.3rem;
+  }
+
+  .auth-form input,
+  .auth-form select,
+  .auth-form textarea {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .btn.primary {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

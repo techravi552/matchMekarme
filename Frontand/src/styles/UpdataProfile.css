@@ -1,0 +1,42 @@
+/* UpdateProfile.css */
+.form-page {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-form input,
+.auth-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.btn.primary {
+  background: #ff4081;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn.primary:hover {
+  background: #e91e63;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .form-page {
+    padding: 10px;
+  }
+  .auth-form {
+    gap: 8px;
+  }
+}

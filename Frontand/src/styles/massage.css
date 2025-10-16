@@ -1,0 +1,32 @@
+.message {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 10px;
+  background: #ffffff;
+  padding: 8px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.msg-content {
+  flex: 1;
+}
+
+.msg-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #444;
+}
+
+.msg-content p {
+  margin: 2px 0 0;
+  color: #333;
+}

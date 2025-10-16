@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import "../styles/Signup.css"
 import axios from "axios";
-import "./../styles/Signup.css";
-import Navbar from "../components/Navbar";
 
 export default function Signup() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
@@ -12,59 +11,73 @@ export default function Signup() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post("https://matchmekarme.onrender.com/api/auth/signup", form);
-      alert("Signup successful!");
-      navigate("/login");
-    } catch (err) {
-      alert(err.response?.data?.message || "Signup failed!");
-    }
+  
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const res = await axios.post("https://matchmakerproject.onrender.com/users/signup", form);
+    
+    // backend से currentUser data आएगा
+    localStorage.setItem("currentUser", JSON.stringify(res.data.user));
+
+    alert("Signup successful!");
+    // navigate("/profile-setup");
+    navigate("/login")
+
+  } catch (err) {
+    alert(err.response?.data?.message || "Signup failed!");
+  }
+};
+
+
+// 👇 Navigate to Login Page
+  const gotoLogin = () => {
+    navigate("/login");
   };
 
+
   return (
-    <>
-    <Navbar/>
+    <div className="form-page">
   
-    <div className="signup-container">
-      <div className="signup-card">
-        <h2>Create Account ✨</h2>
-        <p className="subtitle">Join and start your journey</p>
+      <form onSubmit={handleSubmit} className="auth-form">
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          value={form.name}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Gmail"
+          value={form.email}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={form.password}
+          onChange={handleChange}
+          required
+        />
+        <button type="submit" className="btn primary">Signup</button>
+        
+<p>
+  Already have an account?{" "}
+  <b
+    style={{ cursor: "pointer", color: "var(--primary)" }}
+    onClick={gotoLogin}
+  >
+    Log in
+  </b>
+</p>
 
-        <form className="signup-form" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Full Name"
-            value={form.name}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            value={form.email}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={form.password}
-            onChange={handleChange}
-            required
-          />
-          <button type="submit">Signup</button>
-        </form>
-
-        <p className="login-link">
-          Already have an account? <Link to="/login">Login here</Link>
-        </p>
-      </div>
+      </form>
     </div>
-      </>
   );
 }

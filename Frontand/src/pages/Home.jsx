@@ -1,42 +1,50 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // 👈 Add this
+import React from "react";
+import { useNavigate } from "react-router-dom";  // <-- yeh import karo
 import Navbar from "../components/Navbar";
-import partnersData from "../data/partners.json";
-import "../styles/Home.css";
+import partners from "../data/partners.json";
+import "../styles/Home.css"
 
 export default function Home() {
-  const [partners, setPartners] = useState([]);
-  const navigate = useNavigate(); // 👈 For navigation
-
   const heroUrl =
     "https://images.pexels.com/photos/758898/pexels-photo-758898.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
 
-  useEffect(() => {
-    setPartners(partnersData.slice(0, 5)); // sirf 5 partners
-  }, []);
+  const navigate = useNavigate();
 
-  // 👇 Function for Get Started button
   const handleGetStarted = () => {
-    navigate("/mainPage");
+    const token = localStorage.getItem("token");
+    const currentUser = localStorage.getItem("currentUser");
+
+    if (token && currentUser) {
+      navigate("/main"); // ✅ agar login hai to profile/main page par
+    } else {
+      navigate("/login");   // ❌ agar login nahi hai to login page par
+    }
   };
 
   return (
     <>
       <Navbar />
 
-      <main className="hero" style={{ backgroundImage: `url("${heroUrl}")` }}>
+      {/* Hero Section */}
+      <header
+        className="hero"
+        style={{ backgroundImage: `url("${heroUrl}")` }}
+        role="banner"
+      >
         <div className="hero-content">
           <h1>MatchMe — Find your perfect partner</h1>
-          <p>Simple, fast, and easy matchmaking. Create your profile to get started.</p>
-
-          {/* 👇 Added onClick event */}
+          <p>
+            Simple, fast, and easy matchmaking. Create your profile to get
+            started.
+          </p>
           <button className="cta" onClick={handleGetStarted}>
             Get Started
           </button>
         </div>
-      </main>
+      </header>
 
-      <section className="about">
+      {/* About Section */}
+      <section className="about" id="about">
         <h2>About MatchMe</h2>
         <p>
           MatchMe helps you discover compatible partners with simple filters and
@@ -44,17 +52,18 @@ export default function Home() {
         </p>
       </section>
 
-      <section className="partners-row">
+      {/* Partners Section */}
+      <section className="partners-row" id="partners">
         <h3>Featured Partners</h3>
         <div className="partners-list">
-          {partners.map((p) => {
+          {partners.slice(0, 5).map((p) => {
             const imgSrc =
               typeof p.image === "string" && p.image.startsWith("http")
                 ? p.image
                 : `/images/${p.image}`;
             return (
               <div className="partner-card" key={p.id}>
-                <img src={imgSrc} alt={p.name} />
+                <img src={imgSrc} alt={p.name} loading="lazy" />
                 <div className="pc-info">
                   <strong>{p.name}</strong>
                   <div>
@@ -67,9 +76,12 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Footer */}
       <footer className="site-footer">
-        <div>© {new Date().getFullYear()} MatchMe</div>
-        <div>Help • Terms • Contact</div>
+        <p>© {new Date().getFullYear()} MatchMe</p>
+        <nav>
+          <h5>made by devendra❤️</h5>
+        </nav>
       </footer>
     </>
   );

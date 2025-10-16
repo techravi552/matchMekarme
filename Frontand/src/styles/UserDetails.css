@@ -1,0 +1,156 @@
+/* 🌈 Overall Wrapper */
+.details-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* 🧱 Main Container */
+.details-container {
+  width: 100%;
+  max-width: 900px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* 🔙 Back Button */
+.back-btn {
+  background: #ff5c5c;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+.back-btn:hover {
+  background: #e04444;
+}
+
+/* 💳 Profile Section */
+.profile-card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.main-photo {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #ff5c5c;
+  box-shadow: 0 0 15px rgba(255, 92, 92, 0.4);
+}
+
+/* 📋 Profile Info */
+.profile-info {
+  flex: 1;
+  min-width: 250px;
+}
+
+.profile-info h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.profile-info p {
+  margin: 5px 0;
+  color: #555;
+  font-size: 1rem;
+}
+
+/* 🖼️ Gallery Section */
+.gallery-section {
+  margin-top: 25px;
+}
+
+.gallery-section h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* 🧩 Gallery Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+}
+
+.gallery-photo {
+  width: 100%;
+  height: 140px;
+  border-radius: 15px;
+  object-fit: cover;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.gallery-photo:hover {
+  transform: scale(1.05);
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .details-container {
+    padding: 15px;
+  }
+
+  .profile-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .main-photo {
+    width: 180px;
+    height: 180px;
+  }
+
+  .profile-info h2 {
+    font-size: 1.5rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+}
+
+/* 🔄 Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loader & Error States */
+.loader {
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.not-found {
+  color: white;
+  font-size: 1.3rem;
+  text-align: center;
+  padding-top: 100px;
+}

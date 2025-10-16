@@ -1,99 +1,99 @@
-/* ================= Hero Section ================= */
+/* 🎨 Color & Font Variables */
+:root {
+  --primary: #e63946;
+  --secondary: #457b9d;
+  --bg-light: #f8f9fa;
+  --text-dark: #1d3557;
+  --white: #ffffff;
+  --max-width: 1200px;
+  --radius: 12px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Hero Section */
 .hero {
   background-size: cover;
   background-position: center;
-  height: 70vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  position: relative;
+  padding: 2rem;
+  color: var(--white);
+  text-align: center;
 }
 
 .hero-content {
-  text-align: center;
-  background: rgba(0, 0, 0, 0.45);
-  padding: 20px 30px;
-  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: var(--radius);
+  max-width: 600px;
 }
 
-.hero-content h1 {
+.hero h1 {
   font-size: 2.5rem;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 }
 
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-.hero-content .cta {
-  padding: 12px 25px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  background-color: #ff4081;
-  color: white;
-  cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.hero-content .cta:hover {
-  background-color: #e73370;
-  transform: scale(1.05);
-}
-
-/* ================= About Section ================= */
-.about {
-  padding: 50px 20px;
-  text-align: center;
-  color:black;
-}
-
-.about h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-}
-
-.about p {
+.hero p {
   font-size: 1.1rem;
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
 
-/* ================= Partners Section ================= */
-.partners-row {
-  color: black;
-  padding: 50px 20px;
+.cta {
+  background: var(--primary);
+  color: var(--white);
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.cta:hover {
+  background: #c72f3c;
+}
+
+/* About Section */
+.about {
+  max-width: var(--max-width);
+  margin: 2rem auto;
+  padding: 1.5rem;
   text-align: center;
+  color: var(--text-dark);
+}
+
+/* Partners Section */
+.partners-row {
+  max-width: var(--max-width);
+  margin: 2rem auto;
+  padding: 1rem;
 }
 
 .partners-row h3 {
-  font-size: 2rem;
-  margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--secondary);
 }
 
 .partners-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.2rem;
 }
 
 .partner-card {
-  width: 180px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: #fff;
+  transition: var(--transition);
+  text-align: center;
 }
-
 .partner-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
 .partner-card img {
@@ -103,59 +103,49 @@
 }
 
 .pc-info {
-  padding: 10px;
-  text-align: center;
+  padding: 0.8rem;
+  color: var(--text-dark);
 }
 
-.pc-info strong {
-  display: block;
-  margin-bottom: 5px;
-  font-size: 1.1rem;
-}
-
-/* ================= Footer ================= */
+/* Footer */
 .site-footer {
-  color: black;
-  padding: 25px 20px;
-  background: #f1f1f1;
+  background: var(--text-dark);
+  color: var(--white);
   text-align: center;
-  margin-top: 40px;
-  font-size: 0.95rem;
+  padding: 1.5rem;
 }
 
-/* ================= Responsive Media Queries ================= */
+.site-footer a {
+  color: var(--secondary);
+  text-decoration: none;
+}
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+/* 📱 Responsive Design */
 @media (max-width: 768px) {
-  .hero-content h1 {
+  .hero h1 {
     font-size: 2rem;
   }
-
-  .hero-content p {
+  .hero p {
     font-size: 1rem;
   }
-
-  .partners-list {
-    gap: 15px;
-  }
-
-  .partner-card {
-    width: 140px;
+  .cta {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
   }
 }
 
 @media (max-width: 480px) {
   .hero {
-    height: 50vh;
+    padding: 1rem;
   }
-
-  .hero-content h1 {
-    font-size: 1.5rem;
+  .hero-content {
+    padding: 1rem;
   }
-
-  .hero-content p {
-    font-size: 0.95rem;
-  }
-
-  .partner-card {
-    width: 120px;
+  .partners-list {
+    grid-template-columns: 1fr;
   }
 }
+
